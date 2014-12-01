@@ -21,11 +21,27 @@ from flask.ext.classy import FlaskView, route
 PIXEL = base64.b64decode('R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAIAOw==')
 
 
-class DashboardView(FlaskView):
+class IndexView(FlaskView):
     route_base = '/'
 
+    @route('/', endpoint='index')
+    def index(self):
+        return render_template('index.html')
+
+
+class DashboardView(FlaskView):
+    route_base = '/dashboard/'
+
+    @route('/', endpoint='dashboard')
     def index(self):
         return render_template('dashboard.html')
+
+
+class SitesView(FlaskView):
+
+    @route('/', endpoint='site-list')
+    def index(self):
+        return render_template('site_list.html')
 
 
 class EventsView(FlaskView):
