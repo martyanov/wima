@@ -15,7 +15,7 @@ import os
 from flask import Flask
 
 from .extensions import db
-from .views import DashboardView
+from .views import DashboardView, EventsView
 
 
 PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__)))
@@ -37,5 +37,6 @@ def create_app():
     db.init_app(app)
 
     DashboardView.register(app)
+    EventsView.register(app)
 
     return app
