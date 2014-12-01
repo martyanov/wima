@@ -1,6 +1,4 @@
-{% macro is_page_active(endpoint) -%}
-  {% if request.path == url_for(endpoint) %}class="active"{% endif %}
-{%- endmacro %}
+{% from "lib.html" import is_page_active %}
 
 <!DOCTYPE html>
 <html lang="en">
